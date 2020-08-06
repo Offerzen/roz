@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Offerzen/roz.svg?branch=master)](https://travis-ci.com/Offerzen/roz) 
 [![codecov](https://codecov.io/gh/Offerzen/roz/branch/master/graph/badge.svg)](https://codecov.io/gh/Offerzen/roz)
+[![Maintainability](https://api.codeclimate.com/v1/badges/48d65b3c198d60daef53/maintainability)](https://codeclimate.com/github/Offerzen/roz/maintainability)
 
 Financial recon for OfferZen using Investec's Open API.
 
