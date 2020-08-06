@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -36,14 +36,14 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'slack-ruby-client'
+gem 'slack-ruby-client', '~> 0.14.6'
 
-gem 'dotenv-rails'
+gem 'dotenv-rails', '~> 2.7.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 4.8.2'
 end
 
 group :development do
@@ -51,45 +51,47 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.1.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.142.7'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'chromedriver-helper', '~> 2.1.1'
   gem 'rspec-rails', '~> 3.5'
-  gem 'database_cleaner'
-  gem 'rails-controller-testing'
+  gem 'database_cleaner', '~> 1.8.5'
+  gem 'rails-controller-testing', '~> 1.0.5'
+  gem 'codecov', :require => false
 end
 
-gem 'investec_open_api'
-gem 'devise'
-gem 'omniauth-google-oauth2'
-gem 'seedbank'
-gem 'faker'
+gem 'investec_open_api', '~> 1.0.1'
+gem 'devise', '~> 4.7.2'
+gem 'omniauth-google-oauth2', '~> 0.8.0'
+gem 'seedbank', '~> 0.4.0'
+gem 'faker', '~> 2.10.1'
 gem "paranoia", "~> 2.2"
-gem 'slim'
-gem 'slim-rails'
-gem 'semantic-ui-sass'
-gem 'money-rails'
-gem 'chart-js-rails'
-gem 'gon'
-gem 'jquery-rails'
-gem 'active_link_to'
-gem 'faraday'
-gem 'faraday_middleware'
-gem 'active_attr'
-gem 'pry-rails'
-gem 'pundit'
+gem 'slim', '~> 4.0.1'
+gem 'slim-rails', '~> 3.2.0'
+gem 'semantic-ui-sass', '~> 2.4.2.0'
+gem 'money-rails', '~> 1.13.3'
+gem 'chart-js-rails', '~> 0.1.7'
+gem 'gon', '~> 6.2.1'
+gem 'jquery-rails', '~> 4.3.1'
+gem 'active_link_to', '~> 1.0.5'
+gem 'faraday', '~> 1.0.1'
+gem 'faraday_middleware', '~> 1.0.0'
+gem 'active_attr', '~> 0.15.0'
+gem 'pry-rails', '~> 0.3.9'
+gem 'pundit', '~> 2.0.1'
 gem 'simple_form', "~> 5.0"
-gem 'show_for'
-gem 'sidekiq'
-gem 'sidekiq-scheduler'
-gem 'possessive'
+gem 'show_for', '~> 0.7.0'
+gem 'sidekiq', '~> 5.0.4'
+gem 'sidekiq-scheduler', '~> 2.1.10'
+gem 'possessive', '~> 1.0.1'
 gem "bugsnag", "~> 6.13"
-
 gem "paper_trail", "~> 10.3"
+
+gem "brakeman", "~> 4.9"

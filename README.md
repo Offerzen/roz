@@ -1,5 +1,8 @@
 # ROZ
 
+[![Build Status](https://travis-ci.com/Offerzen/roz.svg?branch=master)](https://travis-ci.com/Offerzen/roz) 
+[![codecov](https://codecov.io/gh/Offerzen/roz/branch/master/graph/badge.svg)](https://codecov.io/gh/Offerzen/roz)
+
 Financial recon for OfferZen using Investec's Open API.
 
 *Features:*
