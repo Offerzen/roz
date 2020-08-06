@@ -1,0 +1,18 @@
+.ui.segment
+  h1 
+    .ui.grid.two.columns.stackable
+      .column
+        = @team.name
+      .column.right.aligned
+        = link_to "Edit", [:edit, :admin, @team], class: "ui button"
+        = link_to 'Delete', [:admin, @team], method: :delete, "data-confirm" => 'Are you sure you want to delete this team?', class: "ui red button"
+
+  = show_for @team do |u|
+    = u.attribute :name
+    = u.attribute :slack_id
+    = u.attribute :group
+    h2 Cards
+    - @team.cards.map do |card|
+      .ui.label 
+        i.icon.credit.card.outline
+        = card.number

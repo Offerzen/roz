@@ -1,0 +1,20 @@
+<div class="ui padded text segment categorize-container">
+  <h1>Hello human 👋 please confirm the deets of your purchase:</h1>
+
+  <div class="ui message">
+    <strong>Transaction details:</strong>
+    <div>Amount: <%= @transaction.amount.abs.format(symbol: 'R') %></div>
+    <div>Description: <%= @transaction.description %></div>
+    <div>Date: <%= @transaction.date.strftime('%-d %B %Y %H:%M%p') %></div>
+  </div>
+
+  <%= simple_form_for @transaction, url: transaction_confirm_path(@transaction), html: { class: "ui form" } do |f| %>
+    <input name="token" value="<%= @transaction.token %>" type="hidden">
+
+    <%= render partial: 'shared/search_select', locals: { name: :team_id, hint: 'Please select a team', options: transaction_select_options(@teams), form: f, label: 'Which team was the purchase for?', description: "If it's for something only you will use, still select the team you are in.", selectable_option_path: transaction_categorize_path(@transaction, token: @transaction.token), selectable_option_key: 'team_id', value: @filter_team.id} %>
+    <%= render partial: 'shared/search_select', locals: { name: :user_id, hint: 'Please select a user', options: transaction_select_options(@users), form: f, label: 'Who made the purchase?' } %>
+    <%= render partial: 'shared/search_select', locals: { name: :budget_category_id, hint: 'Please select a category', options: transaction_select_options(@budget_categories), form: f, label: 'What was the purchase for?' } %>
+    
+    <%= f.submit "Submit", class: "ui primary button" %>
+  <% end %>
+</div>

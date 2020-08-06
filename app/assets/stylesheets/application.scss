@@ -1,0 +1,78 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "semantic-ui";
+
+body {
+  background-color: #eef3f6 !important;
+}
+
+.ui.label {
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+
+.show_for .wrapper {
+  margin-top: 8px;
+}
+
+abbr[title=required] {
+  display: none;
+}
+
+.menu.main-menu {
+  border-radius: 0 !important;
+  background: #09113E !important;
+  height: 58px;
+  .item:before {
+    display: none;
+  }
+  .logo {
+    width: 90px !important;
+    margin-right: 6px !important;
+  }
+  .app-title {
+    padding-left: 6px;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      background: #fff;
+      width: 1px;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 2px;
+    }
+  }
+}
+
+.page-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Search select */
+.field-description {
+  color: #8F8F8F;
+  margin-bottom: 8px;
+}
+
+.dropdown.icon {
+  outline: none !important;
+}
+/* End Search select */

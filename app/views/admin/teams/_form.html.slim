@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @team], html: { class: "ui form" } do |f|
+  = f.input :name
+  = f.input :slack_id, label: "Slack ID"
+  = f.input :group
+
+  = f.submit (f.object.persisted? ? "Save" : "Create"), class: "ui primary button"

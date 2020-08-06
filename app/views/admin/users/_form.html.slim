@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @user], html: { class: "ui form" } do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :slack_id, label: "Slack ID"
+  = f.label "Team", for: "user_team"
+  = f.select :team_id, @teams.map { |team| [team.name, team.id] }, class: "ui dropdown"
+  = f.label "Role", for: "user_role"
+  = f.select :role, [['Team member', 'team_member'], ['Team lead', 'team_lead']], selected: f.object.role, class: "ui dropdown"
+
+
+  = f.submit (f.object.persisted? ? "Save" : "Create"), class: "ui primary button"

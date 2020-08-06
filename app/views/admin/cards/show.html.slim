@@ -1,0 +1,15 @@
+.ui.segment
+  h1 
+    .ui.grid.stackable.two.column
+      .column
+        = @card.number
+      .column.right.aligned
+        = link_to "Edit", [:edit, :admin, @card], class: "ui button"
+        = link_to 'Delete', [:admin, @card], method: :delete, "data-confirm" => 'Are you sure you want to delete this card?', class: "ui red button"
+
+  = show_for @card.team do |u|
+    = u.attribute :name
+  
+  - if @card.user
+    = show_for @card.user do |u|
+      = u.attribute :name

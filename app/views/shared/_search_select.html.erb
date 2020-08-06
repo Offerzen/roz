@@ -1,0 +1,30 @@
+<div class="field">
+  <%= form.label name.to_sym, label, for: name.to_sym %>
+  <% if local_assigns[:description] %>
+    <div class="field-description"><%= description %></div>
+  <% end %>
+  <div class="ui fluid search selection dropdown">
+    <% value ||= local_assigns[:value] ? value : form.object.public_send(name) %>
+    <input type="hidden" name="<%= name %>" value="<%= value %>">
+    <i class="dropdown icon"></i>
+    <% selected_option = options.select { |option| option[:value] == value }&.first %>
+    <div class="<%= selected_option.nil? ? 'default' : '' %> text"><%= selected_option.present? ? selected_option[:label] : hint %></div>
+    <div class="menu">
+      <% options.map do |option| %>
+        <% 
+          if selected_option
+            if value == option[:value] 
+              classes = 'selected active' 
+            end
+          end
+        %>
+        <% if local_assigns[:selectable_option_path] %>
+          <a class="item" href='<%= "#{selectable_option_path}&#{selectable_option_key}=#{option[:value]}" %>' data-value="<%= option[:value] %>"><%= option[:label] %></a>
+        <% else %>
+          <div class="item <%= classes %>" data-value="<%= option[:value] %>"><%= option[:label] %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= render partial: "shared/form_error", locals: { form: form, name: name } %>
+</div>

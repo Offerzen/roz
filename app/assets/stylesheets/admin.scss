@@ -1,0 +1,19 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-nav {
+  padding: 16px;
+  background: #2185d1;
+  border-radius: 0 0 4px 4px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: none;
+
+  a {
+    color: #fff !important;
+  }
+  .divider {
+    color: #fff !important;
+    padding: 0 16px;
+  }
+}

@@ -1,0 +1,12 @@
+h1 Budget categories
+
+table.ui.celled.table
+  thead
+    tr
+      th Name
+      th Notes
+  tbody
+    - @budget_categories.map do |budget_category|
+        tr
+          td = budget_category.name
+          td = budget_category.special ? 'Finops only' : ''

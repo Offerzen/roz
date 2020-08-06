@@ -1,0 +1,15 @@
+{
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rails db:create; bundle exec rails db:migrate; bundle exec rails db:seed"
+  }
+}

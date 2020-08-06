@@ -1,0 +1,22 @@
+.ui.segment
+  h1
+    .ui.grid.two.columns.stackable
+      .column
+        = @user.name
+      .column.right.aligned
+        = link_to "Edit", [:edit, :admin, @user], class: "ui button"
+        = link_to 'Delete', [:admin, @user], method: :delete, "data-confirm" => 'Are you sure you want to delete this user?', class: "ui red button"
+
+
+  = show_for @user do |u|
+    = u.attribute :name
+    = u.attribute :email
+    = u.attribute :slack_id, label: 'Slack ID'
+    = u.attribute :humanized_role, label: 'Role'
+    = show_for @user.team do |team|
+      = team.attribute :name, label: 'Team name'
+
+  - if @user.cards.any?
+    h2 Cards
+    - @user.cards.map do |card|
+      div = card.number

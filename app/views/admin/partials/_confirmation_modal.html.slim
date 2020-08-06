@@ -1,0 +1,12 @@
+.ui.mini.test.modal.visible
+  .header
+    = yield :title
+  .content
+    p
+      = yield :confirmation_text
+  .actions
+    .ui.negative.button
+      | No
+    .ui.positive.right.labeled.icon.button
+      | Yes
+      i.checkmark.icon

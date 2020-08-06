@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ROZ</title>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <%= render partial: 'shared/flash' %>
+
+    <div class="ui containerpage- content">
+      <%= yield %>
+    </div>
+    <div id="gon"><%= Gon::Base.render_data %></div>
+  </body>
+</html>

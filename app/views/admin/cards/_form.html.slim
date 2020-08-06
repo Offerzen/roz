@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @card], html: { class: "ui form" } do |f|
+  = f.input :number
+
+  = f.label :team  
+  = f.select :team_id, @teams.map { |team| [team.name, team.id] }, selected: f.object.team&.id, class: "ui dropdown"
+
+  = f.label :user  
+  = f.select :user_id, @users.map { |user| [user.name, user.id] }, selected: f.object.user&.id, include_blank: "No user", class: "ui dropdown"
+
+  = f.submit (f.object.persisted? ? "Save" : "Create"), class: "ui primary button"

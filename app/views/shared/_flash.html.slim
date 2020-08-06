@@ -1,0 +1,11 @@
+- if flash[:error].present?
+  .ui.container
+    .ui.message.warn
+      .header Whoops
+      p = flash[:error].join('<br/>').html_safe
+
+- if flash[:success].present?
+  .ui.container
+    .ui.message.success
+      .header Success
+      p = flash[:success]

@@ -1,0 +1,21 @@
+.transactions.success {
+  padding: 40px 20px;
+  .ui.container {
+    max-width: 480px !important;
+
+    .ui.primary.button {
+      width: 100%;
+    }
+  }
+  
+  .gif-container {
+    text-align: center;
+  }
+  
+  .gif {
+    width: 100%;
+    margin: 16px auto 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}

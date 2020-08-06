@@ -1,0 +1,56 @@
+- case current_user.role
+- when "team_member"
+  h1 My transactions
+- else
+  h1 Transactions
+
+.actions
+  .ui.menu.actions-left
+    a.item.js-transactions-all class=(@scope == 'all' ? 'active' : '')
+      | All transactions
+    a.item.js-transactions-uncategorized class=(@scope == 'uncategorized' ? 'active' : '')
+      | Uncategorized 
+      .ui.horizontal.label class=(@uncategorized_transactions.count > 0 ? 'purple' : '')
+        = @uncategorized_transactions.count
+
+  .actions-right
+    span.actions-text All transactions:
+    .ui.dropdown.button.purple.inverted
+      span.text.js-sage-text Export for SAGE
+      .menu
+        a.item.js-export-item href="/admin/transactions/sage_report.csv?recent=true"
+          | Last 30 days
+        a.item.js-export-item href="/admin/transactions/sage_report.csv"
+          | All time
+    .ui.dropdown.button.purple.inverted
+      span.text.js-cash-report-text Export for cash report
+      .menu
+        a.item.js-export-item href="/admin/transactions/cash_report.csv?recent=true"
+          | Last 30 days
+        a.item.js-export-item href="/admin/transactions/cash_report.csv"
+          | All time
+
+table.ui.table
+  thead
+    tr
+      th Transaction date
+      th.description Description
+      th.right.aligned Amount
+      th.category Category
+      th Team member
+      th Team
+      th Group
+
+  tbody
+    - @transactions.each do |transaction|
+      tr class=('uncategorized' if transaction.budget_category.nil?) data-transaction-id=(transaction.id)
+        td = transaction.date.strftime('%Y/%m/%d')
+        td.description = transaction.description || '(No description)'
+        td.right.aligned = transaction.amount.format
+        td.category.js-update-transaction-select 
+          = select_tag(:budget_category_id, options_from_collection_for_select(@budget_categories, "id", "name", transaction.budget_category&.id), include_blank: 'Uncategorized')
+        td.js-update-transaction-select 
+          = select_tag(:user_id, options_from_collection_for_select(@users, "id", "name", transaction.user&.id), include_blank: '-')
+        td.js-update-transaction-select 
+          = select_tag(:team_id, options_from_collection_for_select(@teams, "id", "name", transaction.team&.id))
+        td.js-group = transaction.team.group

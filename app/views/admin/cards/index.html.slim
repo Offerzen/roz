@@ -1,0 +1,27 @@
+h1 Cards
+
+table.ui.celled.table
+  thead
+    tr
+      th Card number
+      th Team
+      th User
+  tbody
+    - @cards.map do |card|
+        tr
+          td
+            = link_to(admin_card_path(card), class: "ui label blue")
+              i.icon.credit.card.outline
+              = card.number 
+
+          td = card.team.name
+          td 
+            - if card.user.present?
+              .ui.label 
+                i.icon.user.outline
+                = card.user.name
+
+
+= link_to [:new, :admin, :card], class: "ui button" do
+  i.plus.icon
+  | Card

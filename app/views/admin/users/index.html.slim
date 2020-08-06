@@ -1,0 +1,27 @@
+h1 Users
+
+table.ui.celled.table
+  thead
+    tr
+      th User
+      th Email
+      th Slack ID
+      th Team
+      th Card
+  tbody
+    - @users.map do |user|
+        tr
+          td = link_to(user.name, admin_user_path(user))
+          td = user.email
+          td = user.slack_id
+          td = user.team&.name
+          td 
+            - user.cards.map do | card | 
+              .ui.label 
+                i.icon.credit.card.outline
+                = card.number
+
+
+= link_to [:new, :admin, :user], class: "ui button" do
+  i.plus.icon
+  | User

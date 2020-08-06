@@ -1,0 +1,14 @@
+nav.ui.top.attached.inverted.menu.main-menu
+  = link_to root_path, class: 'item' do
+    = image_tag "offerzen-logo.svg", class: "logo" 
+    .app-title ROZ
+
+  .right.menu
+    - if current_user
+      - if current_user.admin?
+        = active_link_to "Transactions", admin_transactions_path, class: 'item'
+        = active_link_to "Team members", admin_users_path, class: 'item'
+        = active_link_to "Teams", admin_teams_path, class: 'item'
+        = active_link_to "Cards", admin_cards_path, class: 'item'
+
+      = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'item'

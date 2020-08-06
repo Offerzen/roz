@@ -1,0 +1,2 @@
+SyncTransactionsJob:
+  every: '30m'
