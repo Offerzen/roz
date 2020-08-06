@@ -32,6 +32,6 @@ private
 	end
 
   def transaction_params
-    params.require(:transaction).permit(:amount_cents, :account_id, :type, :status, :description, :card_number, :date, :posting_date, :value_date, :action_date)
+    params.require(:transaction).permit(:amount_cents, :type, :status, :description, :card_number, :date, :posting_date, :value_date, :action_date)
   end
 end
