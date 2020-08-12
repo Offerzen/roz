@@ -11,6 +11,7 @@ module Roz
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.time_zone = "Africa/Johannesburg"
+    config.active_job.queue_adapter = :sidekiq
     config.generators do |g|
       g.orm                :active_record
       g.template_engine    :slim
